@@ -1,0 +1,19 @@
+#root {
+  width: 80.5%;
+  max-width: 1160px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  #root {
+    @apply w-full;
+    @apply p-16;
+  }
+}
+
+@media (max-width: 375px) {
+  #root {
+    @apply p-6;
+  }
+}
