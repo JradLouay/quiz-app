@@ -1,5 +1,3 @@
-import Steps from "./Steps";
-
 function Question() {
   return (
     <>
@@ -13,7 +11,6 @@ function Question() {
           Level AA requirement for normal text?
         </div>
       </div>
-      <Steps />
     </>
   );
 }

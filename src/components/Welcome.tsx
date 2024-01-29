@@ -4,7 +4,7 @@ function Welcome() {
   return (
     <div>
       {" "}
-      <div className="flex-col justify-start items-start gap-2 text-slate-700 flex">
+      <div className="flex-col justify-start items-start gap-2 text-slate-700 flex mb-4 md:mb-12">
         <h3 className="text-[64px] font-light leading-[64px]">
           Welcome to the
         </h3>

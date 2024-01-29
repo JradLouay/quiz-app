@@ -7,7 +7,11 @@ function ResponseList() {
         {Array(4)
           .fill(0)
           .map((_, index) => (
-            <ResponseItem selected={index == 3} />
+            <ResponseItem
+              selected={index == 3}
+              showResult={index == 2}
+              correct={index == 2}
+            />
           ))}
       </div>
     </div>

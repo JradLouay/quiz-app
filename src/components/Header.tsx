@@ -1,18 +1,15 @@
-import React from "react";
 import ToggleButton from "./ToggleButton";
+import QuizTitle from "./QuizTitle";
+import { QuizContext } from "../context/QuizContext";
+import { useContext } from "react";
 
 function Header() {
+  const quiz = useContext(QuizContext);
+  const Icon = <div className="w-14 h-14 bg-purple-600 rounded-md"></div>;
   return (
-    <div className="justify-between items-center flex">
-      <div className="justify-start items-center gap-6 flex">
-        <div className="w-14 h-14 relative">
-          <div className="w-10 h-10 left-[8px] top-[8px] absolute" />
-        </div>
-        <div className="text-slate-700 text-[28px] font-medium  leading-7">
-          Accessibility
-        </div>
-      </div>
+    <div className="justify-between items-center flex flex-row-reverse">
       <ToggleButton />
+      {quiz.quizTopic && <QuizTitle title={quiz.quizTopic.title} icon={Icon} />}
     </div>
   );
 }
