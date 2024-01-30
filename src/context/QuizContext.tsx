@@ -1,9 +1,21 @@
 import { createContext, useReducer } from "react";
 
+type Quiz = {
+  quizTopic: string | null;
+  quizScore: number;
+};
+type ActionType = {
+  type: string;
+  quizTopic: string;
+};
+type QuizProviderProps = {
+  children: React.ReactNode;
+};
+
 export const QuizContext = createContext(null);
 export const QuizDispatchContext = createContext(null);
 
-export function QuizProvider({ children }) {
+export function QuizProvider({ children }: QuizProviderProps) {
   const [quiz, dispatch] = useReducer(quizReducer, initialState);
 
   return (
@@ -15,7 +27,7 @@ export function QuizProvider({ children }) {
   );
 }
 
-function quizReducer(quiz, action) {
+function quizReducer(quiz: Quiz, action: ActionType) {
   switch (action.type) {
     case "select_topic": {
       return {
@@ -23,10 +35,10 @@ function quizReducer(quiz, action) {
         quizTopic: action.quizTopic,
       };
     }
-    case "add_result": {
+    case "incr_score": {
       return {
         ...quiz,
-        quizScore: action.quizScore,
+        quizScore: quiz.quizScore + 1,
       };
     }
     default: {
@@ -35,7 +47,7 @@ function quizReducer(quiz, action) {
   }
 }
 
-const initialState = {
+const initialState: Quiz = {
   quizTopic: null,
-  quizScore: null,
+  quizScore: 0,
 };

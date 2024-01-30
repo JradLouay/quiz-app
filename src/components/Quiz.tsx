@@ -10,7 +10,7 @@ function Quiz() {
   return (
     <>
       <Header />
-      {quiz.quizTopic ? <QuizComponent /> : <HomeComponent />}
+      {quiz && quiz.quizTopic ? <QuizComponent /> : <HomeComponent />}
       {/* <ScoreComponent /> */}
     </>
   );

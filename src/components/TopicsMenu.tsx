@@ -1,20 +1,8 @@
 import MenuItem from "./MenuItem";
 
-let topics: any[] = [
+const topics: object[] = [
   {
-    title: "Javascript",
-    icon: "",
-  },
-  {
-    title: "HTML",
-    icon: "",
-  },
-  {
-    title: "CSS",
-    icon: "",
-  },
-  {
-    title: "Accessibility",
+    title: "Bash",
     icon: "",
   },
 ];
@@ -22,8 +10,8 @@ let topics: any[] = [
 function TopicsMenu() {
   return (
     <>
-      {topics.map((topic) => (
-        <MenuItem topic={topic} />
+      {topics.map((topic, index) => (
+        <MenuItem key={index} topic={topic} />
       ))}
     </>
   );
