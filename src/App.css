@@ -12,6 +12,10 @@
   }
 }
 
+html {
+  @apply bg-slate-100 dark:bg-slate-700;
+}
+
 @media (max-width: 375px) {
   #root {
     @apply p-6;

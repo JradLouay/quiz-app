@@ -1,6 +1,13 @@
+import { useTheme } from "../context/DarkModeContext";
+
 function ToggleButton() {
+  const { toggleTheme } = useTheme();
+
   return (
-    <div className="justify-start items-center gap-4 flex">
+    <div
+      onClick={toggleTheme}
+      className="justify-start items-center gap-4 flex"
+    >
       <div className="w-6 h-6 ">
         <svg
           width="24"
