@@ -7,12 +7,12 @@ type QuestionProps = {
 function Question({ question, totalQuestions, questionNumber }: QuestionProps) {
   return (
     <>
-      <div className="gap-[27px] flex-col flex">
+      <div className="flex flex-col gap-[27px]">
         {" "}
-        <div className="self-stretch text-gray-500 text-xl font-normal leading-[30px]">
+        <div className="self-stretch text-xl font-normal leading-[30px] text-gray-500 dark:text-indigo-300">
           Question {questionNumber} of {totalQuestions}
         </div>
-        <div className="self-stretch text-slate-700 text-4xl font-medium leading-[43.20px]">
+        <div className="self-stretch text-4xl font-medium leading-[43.20px] text-slate-700 dark:text-white">
           {question?.question}
         </div>
       </div>

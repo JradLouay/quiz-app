@@ -8,9 +8,14 @@ import { QuizDispatchContext } from "../context/QuizContext";
 type ResponseListPorps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   answers: any[];
+  lastQuestion: boolean;
   nextQuestion: () => void;
 };
-function ResponseList({ answers, nextQuestion }: ResponseListPorps) {
+function ResponseList({
+  answers,
+  nextQuestion,
+  lastQuestion,
+}: ResponseListPorps) {
   const [userAnswer, setUserAnswer] = useState<Answer | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
   const [showErrorMsg, setShowErrorMsg] = useState<boolean>(false);
@@ -20,20 +25,28 @@ function ResponseList({ answers, nextQuestion }: ResponseListPorps) {
     if (!userAnswer) {
       setShowErrorMsg((prev) => !prev);
     } else {
+      setShowResult((prev) => !prev);
       if (userAnswer.correct) {
         dispatch({
           type: "incr_score",
         });
       }
-      setShowResult((prev) => !prev);
+    }
+  }
+
+  function finishQuiz() {
+    if (lastQuestion) {
+      dispatch({
+        type: "finish_quiz",
+      });
     }
   }
 
   return (
     <>
-      <div className="flex gap-6 flex-col lg:max-w-[564px]">
-        <div className="flex-col gap-8 flex">
-          <div className="flex-col gap-6 flex">
+      <div className="flex flex-col gap-6 lg:max-w-[564px]">
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6">
             {answers.map(function (answer: Answer, index) {
               return (
                 <ResponseItem
@@ -49,13 +62,20 @@ function ResponseList({ answers, nextQuestion }: ResponseListPorps) {
         </div>
       </div>
       <div className="lg:col-start-2">
-        {showResult && userAnswer ? (
-          <Button text="next question" action={nextQuestion} />
-        ) : (
-          <Button text="Submit answer" action={checkAnswer} />
-        )}
+        {!lastQuestion &&
+          (showResult && userAnswer ? (
+            <Button text="Next Question" action={nextQuestion} />
+          ) : (
+            <Button text="Submit Answer" action={checkAnswer} />
+          ))}
+        {lastQuestion &&
+          (showResult ? (
+            <Button text="Finish Quiz" action={finishQuiz} />
+          ) : (
+            <Button text="Submit Answer" action={checkAnswer} />
+          ))}
         {!userAnswer && showErrorMsg && (
-          <div className="justify-start items-center gap-2 inline-flex">
+          <div className="inline-flex items-center justify-start gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -68,7 +88,7 @@ function ResponseList({ answers, nextQuestion }: ResponseListPorps) {
                 fill="#EE5454"
               />
             </svg>
-            <p className="text-red-500 text-2xl font-normal leading-9">
+            <p className="text-2xl font-normal leading-9 text-red-500">
               Please select an answer
             </p>
           </div>

@@ -5,10 +5,10 @@ type StepProps = {
 
 function Steps({ quizLength, currentQuestion }: StepProps) {
   return (
-    <div className="h-4 p-1 bg-white rounded-[999px] flex-col justify-center items-start gap-2 flex">
+    <div className="flex h-4 flex-col items-start justify-center gap-2 rounded-[999px] bg-white p-1 dark:bg-slate-600">
       <div
         style={{ width: `${(currentQuestion * 100) / quizLength}%` }}
-        className={"h-2 bg-purple-600 rounded-[104px] border"}
+        className={"h-2 rounded-[104px] border bg-purple-600 dark:border-none"}
       ></div>
     </div>
   );

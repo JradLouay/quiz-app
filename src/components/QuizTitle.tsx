@@ -1,8 +1,8 @@
 function QuizTitle({ icon, title }) {
   return (
-    <div className="justify-start items-center gap-6 flex">
+    <div className="flex items-center justify-start gap-6">
       {icon}
-      <div className="text-slate-700 text-[28px] font-medium  leading-7">
+      <div className="text-[28px] font-medium leading-7 text-slate-700  dark:text-white">
         {title}
       </div>
     </div>

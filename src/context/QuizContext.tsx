@@ -3,10 +3,13 @@ import { createContext, useReducer } from "react";
 type Quiz = {
   quizTopic: string | null;
   quizScore: number;
+  length: number;
+  finished: boolean | null;
 };
 type ActionType = {
   type: string;
   quizTopic: string;
+  length: number;
 };
 type QuizProviderProps = {
   children: React.ReactNode;
@@ -29,6 +32,27 @@ export function QuizProvider({ children }: QuizProviderProps) {
 
 function quizReducer(quiz: Quiz, action: ActionType) {
   switch (action.type) {
+    case "start_quiz": {
+      return {
+        ...quiz,
+        finished: false,
+      };
+    }
+    case "set_length": {
+      return {
+        ...quiz,
+        length: action.length,
+      };
+    }
+    case "finish_quiz": {
+      return {
+        ...quiz,
+        finished: true,
+      };
+    }
+    case "reset": {
+      return initialState;
+    }
     case "select_topic": {
       return {
         ...quiz,
@@ -50,4 +74,6 @@ function quizReducer(quiz: Quiz, action: ActionType) {
 const initialState: Quiz = {
   quizTopic: null,
   quizScore: 0,
+  length: 0,
+  finished: false,
 };

@@ -13,8 +13,9 @@ function Quiz() {
       <div className="absolute -z-50 w-[977px] h-[977px] -bottom-[50%] -right-[53%] rounded-full border-[144px] border-[#EDF1F9]" /> */}
 
       <Header />
-      {quiz && quiz.quizTopic ? <QuizComponent /> : <HomeComponent />}
-      {/* <ScoreComponent /> */}
+      {!quiz.finished &&
+        (quiz && quiz.quizTopic ? <QuizComponent /> : <HomeComponent />)}
+      {quiz.finished && <ScoreComponent />}
     </div>
   );
 }
