@@ -2,10 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap");
+
 :root {
-  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
-  line-height: 1.5;
-  font-weight: 400;
+  /* font-family: "Rubik", sans-serif; */
+  @apply font-rubik;
 
   color-scheme: light dark;
   @apply bg-slate-100;

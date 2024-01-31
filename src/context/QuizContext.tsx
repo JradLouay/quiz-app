@@ -1,22 +1,29 @@
-import { createContext, useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 
 type Quiz = {
-  quizTopic: string | null;
+  quizTopic: Topic | null;
   quizScore: number;
   length: number;
   finished: boolean | null;
 };
+type Topic = {
+  title: string;
+  // give it type any because i don't know how this will be handled
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  icon: any;
+};
 type ActionType = {
   type: string;
-  quizTopic: string;
+  quizTopic: Topic;
   length: number;
 };
 type QuizProviderProps = {
   children: React.ReactNode;
 };
 
-export const QuizContext = createContext(null);
-export const QuizDispatchContext = createContext(null);
+export const QuizContext = createContext<Quiz | null>(null);
+export const QuizDispatchContext =
+  createContext<React.Dispatch<ActionType> | null>(null);
 
 export function QuizProvider({ children }: QuizProviderProps) {
   const [quiz, dispatch] = useReducer(quizReducer, initialState);

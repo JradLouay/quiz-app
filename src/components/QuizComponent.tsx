@@ -15,7 +15,7 @@ function QuizComponent() {
 
   const { data } = useFetch(
     "https://quizapi.io/api/v1/questions?apiKey=NZcUX62tqCNU0vTgmhG5rN0dr7RYLdWZVfK6ROiS&limit=10&category=" +
-      quiz.quizTopic.title,
+      quiz?.quizTopic?.title,
   );
   if (data) {
     currentQuestion = data[currentQuestionIndex];
