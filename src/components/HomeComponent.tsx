@@ -3,7 +3,7 @@ import TopicsMenu from "./TopicsMenu";
 
 function HomeComponent() {
   return (
-    <div className="mt-[49px] grid gap-y-8 md:mt-[85px] lg:grid-cols-2">
+    <div className="grid gap-y-8 lg:grid-cols-2">
       <div className="flex flex-col justify-between gap-10 text-left md:gap-12 lg:max-w-[465px]">
         <Welcome />
       </div>

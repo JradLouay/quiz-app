@@ -15,7 +15,7 @@ function ScoreComponent() {
 
   return (
     <>
-      <div className="mt-[49px] grid gap-y-8 md:mt-[85px] lg:grid-cols-2">
+      <div className="grid gap-y-8 lg:grid-cols-2">
         <CompletedComponent />
         <div className="flex flex-col gap-6 lg:max-w-[564px]">
           <div className="flex flex-col items-center justify-start gap-10 rounded-3xl border bg-white p-12 shadow-custom dark:border-none dark:bg-slate-600 dark:shadow-custom_dark">

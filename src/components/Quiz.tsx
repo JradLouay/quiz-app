@@ -8,10 +8,7 @@ import ScoreComponent from "./ScoreComponent";
 function Quiz() {
   const quiz = useContext(QuizContext);
   return (
-    <div className={"sm:py-[97px]"}>
-      {/* <div className="absolute -left-[53%] -top-[50%] -z-50 h-[977px] w-[977px] rounded-full border-[144px] border-[#EDF1F9]" />
-      <div className="absolute -bottom-[50%] -right-[53%] -z-50 h-[977px] w-[977px] rounded-full border-[144px] border-[#EDF1F9]" /> */}
-
+    <div className="grid gap-y-[49px] md:gap-y-[85px]">
       <Header />
       {!quiz?.finished &&
         (quiz && quiz.quizTopic ? <QuizComponent /> : <HomeComponent />)}

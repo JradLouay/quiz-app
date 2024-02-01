@@ -7,7 +7,7 @@ function Header() {
   const quiz = useContext(QuizContext);
   // const Icon = <div className="h-14 w-14 rounded-md bg-purple-600"></div>;
   return (
-    <div className="flex flex-row-reverse items-center justify-between">
+    <div className="mt-4 flex flex-row-reverse items-center justify-between lg:mt-[83px]">
       <ToggleButton />
       {quiz?.quizTopic && (
         <QuizTitle title={quiz?.quizTopic.title} icon={quiz?.quizTopic.icon} />

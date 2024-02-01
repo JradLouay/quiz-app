@@ -40,7 +40,7 @@ function QuizComponent() {
   return (
     <>
       {currentQuestion && data && (
-        <div className="mt-[49px] grid gap-y-10 md:mt-[85px] md:gap-y-16 lg:grid-cols-2">
+        <div className="grid gap-y-10 md:gap-y-16 lg:grid-cols-2">
           <div className="flex flex-col gap-6 text-left md:gap-12 lg:max-w-[465px] lg:justify-between lg:gap-10">
             <Question
               question={currentQuestion}
