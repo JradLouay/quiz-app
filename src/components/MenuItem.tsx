@@ -46,9 +46,9 @@ function MenuItem({ topic }: MenuItemProps) {
     >
       {/* <div className={`h-14 w-14 bg-[${"#FFF1E9"}] rounded-md p-2`}>{icon}</div> */}
       {icon}
-      <h4 className="text-[28px] font-medium leading-7 text-slate-700 dark:text-white">
+      <span className="text-[28px] font-medium leading-7 text-slate-700 dark:text-white">
         {title}
-      </h4>
+      </span>
     </button>
   );
 }
