@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { Answer } from "../hooks/useFetch";
+import { Answer } from "../../hooks/useFetch";
 import RightWrongIconComponent from "./RightWrongComponent";
 import { Dispatch, SetStateAction } from "react";
 
@@ -22,13 +22,12 @@ function ResponseItem({
     }
   }
   const buttonClass = classNames({
-    "max-h-[64px] text-lg sm:text-[28px] leading-none sm:max-h-[80px] lg:max-h-[92px] group p-3 lg:px-5 lg:py-[18px] bg-white dark:bg-slate-600 dark:shadow-custom_dark rounded-3xl shadow items-center justify-between flex":
+    "max-h-[64px] border-[3px] border-white dark:border-slate-600 text-lg sm:text-[28px] leading-none sm:max-h-[80px] lg:max-h-[92px] group p-3 lg:px-5 lg:py-[18px] bg-white dark:bg-slate-600 dark:shadow-custom_dark rounded-3xl shadow items-center justify-between flex":
       true,
-    "border-[3px] border-purple-600": selected === answer && !showResult,
-    "border-[3px] border-emerald-400":
+    "!border-purple-600": selected === answer && !showResult,
+    "!border-emerald-400":
       selected === answer && showResult && selected?.correct,
-    "border-[3px] border-red-500":
-      selected === answer && showResult && !selected?.correct,
+    "!border-red-500": selected === answer && showResult && !selected?.correct,
   });
 
   const questionNumberClass = classNames({

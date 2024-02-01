@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { QuizDispatchContext, Topic } from "../context/QuizContext";
+import { QuizDispatchContext, Topic } from "../../context/QuizContext";
 
 const AccessibilityIcon = (
   <svg
@@ -42,9 +42,8 @@ function MenuItem({ topic }: MenuItemProps) {
   return (
     <button
       onClick={selectTopic}
-      className="group inline-flex max-h-[64px] items-center justify-start gap-6 rounded-3xl border bg-white p-3 shadow-custom dark:border-none dark:bg-slate-600 dark:shadow-custom_dark sm:max-h-[80px] md:gap-8 md:p-5 lg:max-h-[92px]"
+      className="600 group inline-flex max-h-[64px] items-center justify-start gap-6 rounded-3xl border-[3px] border-white bg-white p-3 shadow-custom hover:!border-purple-600 dark:border-slate-600 dark:bg-slate-600 dark:shadow-custom_dark sm:max-h-[80px] md:gap-8 md:p-5 lg:max-h-[92px]"
     >
-      {/* <div className={`h-14 w-14 bg-[${"#FFF1E9"}] rounded-md p-2`}>{icon}</div> */}
       {icon}
       <span className="text-[28px] font-medium leading-7 text-slate-700 dark:text-white">
         {title}

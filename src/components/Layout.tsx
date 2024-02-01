@@ -5,7 +5,7 @@ import HomeComponent from "./HomeComponent";
 import QuizComponent from "./QuizComponent";
 import ScoreComponent from "./ScoreComponent";
 
-function Quiz() {
+function Layout() {
   const quiz = useContext(QuizContext);
   return (
     <div className="grid gap-y-[49px] md:gap-y-[85px]">
@@ -17,4 +17,4 @@ function Quiz() {
   );
 }
 
-export default Quiz;
+export default Layout;

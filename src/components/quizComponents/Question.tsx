@@ -1,4 +1,4 @@
-import Quiz from "./Quiz";
+import Quiz from "../Layout";
 
 type QuestionProps = {
   question: Quiz;

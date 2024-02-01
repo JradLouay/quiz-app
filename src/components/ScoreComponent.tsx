@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Button from "./Button";
-import CompletedComponent from "./CompletedComponent";
+import CompletedComponent from "./scoreComponents/CompletedComponent";
 import { QuizContext, QuizDispatchContext } from "../context/QuizContext";
 
 function ScoreComponent() {

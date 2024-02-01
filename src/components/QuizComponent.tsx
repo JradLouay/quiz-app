@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 
-import Question from "./Question";
-import Steps from "./Steps";
-import ResponseList from "./ResponseList";
+import Question from "./quizComponents/Question";
+import Steps from "./quizComponents/Steps";
+import ResponseList from "./quizComponents/ResponseList";
 import { QuizContext, QuizDispatchContext } from "../context/QuizContext";
 
 function QuizComponent() {

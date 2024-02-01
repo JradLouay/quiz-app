@@ -1,4 +1,4 @@
-import { Topic } from "../context/QuizContext";
+import { Topic } from "../../context/QuizContext";
 import MenuItem from "./MenuItem";
 
 const topics: Topic[] = [

@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
-import { Answer } from "../hooks/useFetch";
+import { Answer } from "../../hooks/useFetch";
 
 import ResponseItem from "./ResponseItem";
-import Button from "./Button";
-import { QuizDispatchContext } from "../context/QuizContext";
+import Button from "../Button";
+import { QuizDispatchContext } from "../../context/QuizContext";
 
 type ResponseListPorps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -58,25 +58,24 @@ function ResponseList({
                 />
               );
             })}
-            <div className="md:pt-2">
-              {" "}
-              {!lastQuestion &&
-                (showResult && userAnswer ? (
-                  <Button text="Next Question" action={nextQuestion} />
-                ) : (
-                  <Button text="Submit Answer" action={checkAnswer} />
-                ))}
-              {lastQuestion &&
-                (showResult ? (
-                  <Button text="Finish Quiz" action={finishQuiz} />
-                ) : (
-                  <Button text="Submit Answer" action={checkAnswer} />
-                ))}
-            </div>
           </div>
         </div>
       </div>
-      <div className="lg:col-start-2">
+
+      <div className="md:pt-2 lg:col-start-2">
+        {" "}
+        {!lastQuestion &&
+          (showResult && userAnswer ? (
+            <Button text="Next Question" action={nextQuestion} />
+          ) : (
+            <Button text="Submit Answer" action={checkAnswer} />
+          ))}
+        {lastQuestion &&
+          (showResult ? (
+            <Button text="Finish Quiz" action={finishQuiz} />
+          ) : (
+            <Button text="Submit Answer" action={checkAnswer} />
+          ))}
         {!userAnswer && showErrorMsg && (
           <div className="inline-flex items-center justify-start gap-2">
             <svg

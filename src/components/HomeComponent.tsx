@@ -1,5 +1,5 @@
-import Welcome from "./Welcome";
-import TopicsMenu from "./TopicsMenu";
+import Welcome from "./home/Welcome";
+import TopicsMenu from "./home/TopicsMenu";
 
 function HomeComponent() {
   return (

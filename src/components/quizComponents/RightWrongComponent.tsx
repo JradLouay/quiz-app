@@ -1,4 +1,4 @@
-import { Answer } from "../hooks/useFetch";
+import { Answer } from "../../hooks/useFetch";
 
 type RightWrongIconComponentProps = {
   selected: Answer | null;
