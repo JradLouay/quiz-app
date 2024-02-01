@@ -6,7 +6,7 @@ type Quiz = {
   length: number;
   finished: boolean | null;
 };
-type Topic = {
+export type Topic = {
   title: string;
   // give it type any because i don't know how this will be handled
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

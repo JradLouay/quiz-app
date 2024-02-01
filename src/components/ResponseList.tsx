@@ -44,7 +44,7 @@ function ResponseList({
 
   return (
     <>
-      <div className="flex flex-col gap-6 lg:max-w-[564px]">
+      <div className="flex flex-col gap-3 md:gap-6 lg:max-w-[564px]">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-6">
             {answers.map(function (answer: Answer, index) {
@@ -58,22 +58,25 @@ function ResponseList({
                 />
               );
             })}
+            <div className="md:pt-2">
+              {" "}
+              {!lastQuestion &&
+                (showResult && userAnswer ? (
+                  <Button text="Next Question" action={nextQuestion} />
+                ) : (
+                  <Button text="Submit Answer" action={checkAnswer} />
+                ))}
+              {lastQuestion &&
+                (showResult ? (
+                  <Button text="Finish Quiz" action={finishQuiz} />
+                ) : (
+                  <Button text="Submit Answer" action={checkAnswer} />
+                ))}
+            </div>
           </div>
         </div>
       </div>
       <div className="lg:col-start-2">
-        {!lastQuestion &&
-          (showResult && userAnswer ? (
-            <Button text="Next Question" action={nextQuestion} />
-          ) : (
-            <Button text="Submit Answer" action={checkAnswer} />
-          ))}
-        {lastQuestion &&
-          (showResult ? (
-            <Button text="Finish Quiz" action={finishQuiz} />
-          ) : (
-            <Button text="Submit Answer" action={checkAnswer} />
-          ))}
         {!userAnswer && showErrorMsg && (
           <div className="inline-flex items-center justify-start gap-2">
             <svg

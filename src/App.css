@@ -8,7 +8,7 @@
 @media (max-width: 1024px) {
   #root {
     @apply w-full;
-    @apply p-16;
+    @apply p-6;
   }
 }
 

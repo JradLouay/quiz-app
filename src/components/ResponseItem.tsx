@@ -21,7 +21,7 @@ function ResponseItem({
     }
   }
   const buttonClass = classNames({
-    "group px-5 py-[18px] bg-white dark:bg-slate-600 dark:shadow-custom_dark rounded-3xl shadow items-center justify-between flex":
+    "max-h-[64px] sm:max-h-[80px] lg:max-h-[92px] group p-3 lg:px-5 lg:py-[18px] bg-white dark:bg-slate-600 dark:shadow-custom_dark rounded-3xl shadow items-center justify-between flex":
       true,
     "border-[3px] border-purple-600": selected === answer && !showResult,
     "border-[3px] border-emerald-400":
@@ -31,7 +31,7 @@ function ResponseItem({
   });
 
   const questionNumberClass = classNames({
-    "rounded-md text-gray-500 bg-slate-100 h-14 w-14 flex justify-center items-center text-[28px] font-medium leading-7":
+    "rounded-md text-gray-500 bg-slate-100 h-10 w-10 sm:h-[56px] sm:w-[56px] flex justify-center items-center text-lg sm:text-[28px] font-medium":
       true,
     "!bg-purple-600 text-white": selected === answer && !showResult,
     "text-gray-500": !selected === answer,
@@ -46,7 +46,7 @@ function ResponseItem({
     <button onClick={() => itemClick(answer)} className={buttonClass}>
       <div className="flex items-center gap-8">
         <div className={questionNumberClass}>A</div>
-        <p className="text-[28px] font-medium leading-7 text-slate-700 dark:text-white">
+        <p className="font-medium leading-7 text-slate-700 dark:text-white">
           {answer.answer}
         </p>
       </div>
