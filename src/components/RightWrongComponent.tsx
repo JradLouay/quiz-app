@@ -1,9 +1,9 @@
 import { Answer } from "../hooks/useFetch";
 
 type RightWrongIconComponentProps = {
-  selected: Answer;
+  selected: Answer | null;
   showResult: boolean;
-  answer: Answer;
+  answer: Answer | null;
 };
 function RightWrongIconComponent({
   selected,
@@ -14,7 +14,7 @@ function RightWrongIconComponent({
     <>
       {showResult &&
         selected === answer &&
-        (selected.correct ? (
+        (selected?.correct ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
@@ -41,7 +41,7 @@ function RightWrongIconComponent({
             />
           </svg>
         ))}
-      {showResult && answer.correct && selected !== answer && (
+      {showResult && answer?.correct && selected !== answer && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"

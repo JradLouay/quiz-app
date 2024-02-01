@@ -1,12 +1,13 @@
 import classNames from "classnames";
 import { Answer } from "../hooks/useFetch";
 import RightWrongIconComponent from "./RightWrongComponent";
+import { Dispatch, SetStateAction } from "react";
 
 type responseItemProps = {
   selected: Answer | null;
   showResult: boolean;
   answer: Answer | null;
-  setAnswer: (answer: object) => void;
+  setAnswer: Dispatch<SetStateAction<Answer | null>>;
 };
 
 function ResponseItem({
@@ -15,7 +16,7 @@ function ResponseItem({
   answer,
   setAnswer,
 }: responseItemProps) {
-  function itemClick(answer: Answer) {
+  function itemClick(answer: Answer | null) {
     if (!showResult) {
       setAnswer(answer);
     }
@@ -25,20 +26,20 @@ function ResponseItem({
       true,
     "border-[3px] border-purple-600": selected === answer && !showResult,
     "border-[3px] border-emerald-400":
-      selected === answer && showResult && selected.correct,
+      selected === answer && showResult && selected?.correct,
     "border-[3px] border-red-500":
-      selected === answer && showResult && !selected.correct,
+      selected === answer && showResult && !selected?.correct,
   });
 
   const questionNumberClass = classNames({
     "rounded-md text-gray-500 bg-slate-100 h-10 w-10 sm:h-[56px] sm:w-[56px] flex justify-center items-center text-lg sm:text-[28px] font-medium":
       true,
     "!bg-purple-600 text-white": selected === answer && !showResult,
-    "text-gray-500": !selected === answer,
+    "text-gray-500": !(selected === answer),
     "!bg-emerald-400 text-white":
-      selected === answer && showResult && selected.correct,
+      selected === answer && showResult && selected?.correct,
     "!bg-red-500 text-white":
-      selected === answer && showResult && !selected.correct,
+      selected === answer && showResult && !selected?.correct,
     "group-hover:bg-purple-100 group-hover:text-purple-600": !showResult,
   });
 
@@ -47,7 +48,7 @@ function ResponseItem({
       <div className="flex items-center gap-8">
         <div className={questionNumberClass}>A</div>
         <p className="font-medium leading-7 text-slate-700 dark:text-white">
-          {answer.answer}
+          {answer?.answer}
         </p>
       </div>
 

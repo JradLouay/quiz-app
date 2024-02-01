@@ -21,15 +21,15 @@ function ScoreComponent() {
           <div className="flex flex-col items-center justify-start gap-10 rounded-3xl border bg-white p-12 shadow-custom dark:border-none dark:bg-slate-600 dark:shadow-custom_dark">
             <div className="flex items-center justify-start gap-6">
               <div className="text-[28px] font-medium leading-7 text-slate-700 dark:text-white">
-                {quiz.quizTopic.title}
+                {quiz?.quizTopic?.title}
               </div>
             </div>
             <div className="flex flex-col items-center justify-start gap-4">
               <span className="text-[144px] font-medium leading-[144px] text-slate-700 dark:text-white">
-                {quiz.quizScore}
+                {quiz?.quizScore}
               </span>
               <span className="text-2xl font-normal leading-9 text-gray-500 dark:text-indigo-300">
-                out of {quiz.length}
+                out of {quiz?.length}
               </span>
             </div>
           </div>{" "}

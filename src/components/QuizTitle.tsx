@@ -1,4 +1,10 @@
-function QuizTitle({ icon, title }) {
+type QuizTitleprops = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  icon: any;
+  title: string;
+};
+
+function QuizTitle({ icon, title }: QuizTitleprops) {
   return (
     <div className="flex items-center justify-start gap-6">
       {icon}

@@ -1,5 +1,7 @@
+import Quiz from "./Quiz";
+
 type QuestionProps = {
-  question: object;
+  question: Quiz;
   totalQuestions: number;
   questionNumber: number;
 };

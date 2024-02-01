@@ -14,18 +14,19 @@ export type Topic = {
 };
 type ActionType = {
   type: string;
-  quizTopic: Topic;
-  length: number;
+  quizTopic?: Topic;
+  length?: number;
 };
 type QuizProviderProps = {
   children: React.ReactNode;
 };
 
-export const QuizContext = createContext<Quiz | null>(null);
+export const QuizContext = createContext<Quiz>(null);
 export const QuizDispatchContext =
   createContext<React.Dispatch<ActionType> | null>(null);
 
 export function QuizProvider({ children }: QuizProviderProps) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [quiz, dispatch] = useReducer(quizReducer, initialState);
 
   return (

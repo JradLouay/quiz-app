@@ -1,6 +1,7 @@
+import { Topic } from "../context/QuizContext";
 import MenuItem from "./MenuItem";
 
-const topics: object[] = [
+const topics: Topic[] = [
   {
     title: "Html",
     icon: (
