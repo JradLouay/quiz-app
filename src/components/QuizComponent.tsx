@@ -4,18 +4,18 @@ import { useFetch } from "../hooks/useFetch";
 import Question from "./quizComponents/Question";
 import Steps from "./quizComponents/Steps";
 import ResponseList from "./quizComponents/ResponseList";
-import { QuizContext, QuizDispatchContext } from "../context/QuizContext";
+import { QuizDispatchContext } from "../context/QuizContext";
 
 function QuizComponent() {
   let currentQuestion;
-  const quiz = useContext(QuizContext);
+  // const quiz = useContext(QuizContext);
   const dispatch = useContext(QuizDispatchContext);
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
 
   const { data } = useFetch(
     "https://quizapi.io/api/v1/questions?apiKey=NZcUX62tqCNU0vTgmhG5rN0dr7RYLdWZVfK6ROiS&limit=10&category=" +
-      quiz?.quizTopic?.title,
+      "Bash",
   );
   if (data) {
     currentQuestion = data[currentQuestionIndex];

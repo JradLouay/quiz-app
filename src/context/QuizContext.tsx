@@ -1,29 +1,34 @@
 import React, { createContext, useReducer } from "react";
 
-type Quiz = {
-  quizTopic: Topic | null;
+export type Quiz = {
+  quizTopic?: Topic;
   quizScore: number;
-  length: number;
+  length: number | undefined;
   finished: boolean | null;
 };
+
 export type Topic = {
   title: string;
+  color: string;
   // give it type any because i don't know how this will be handled
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   icon: any;
 };
+
 type ActionType = {
   type: string;
   quizTopic?: Topic;
   length?: number;
 };
+
 type QuizProviderProps = {
   children: React.ReactNode;
 };
 
-export const QuizContext = createContext<Quiz>(null);
-export const QuizDispatchContext =
-  createContext<React.Dispatch<ActionType> | null>(null);
+export const QuizContext = createContext<Quiz | null>(null);
+export const QuizDispatchContext = createContext<React.Dispatch<ActionType>>(
+  {} as React.Dispatch<ActionType>,
+);
 
 export function QuizProvider({ children }: QuizProviderProps) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -38,7 +43,7 @@ export function QuizProvider({ children }: QuizProviderProps) {
   );
 }
 
-function quizReducer(quiz: Quiz, action: ActionType) {
+function quizReducer(quiz: Quiz, action: ActionType): Quiz {
   switch (action.type) {
     case "start_quiz": {
       return {
@@ -80,7 +85,7 @@ function quizReducer(quiz: Quiz, action: ActionType) {
 }
 
 const initialState: Quiz = {
-  quizTopic: null,
+  // quizTopic: null,
   quizScore: 0,
   length: 0,
   finished: false,

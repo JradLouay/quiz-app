@@ -8,11 +8,13 @@ import ScoreComponent from "./ScoreComponent";
 function Layout() {
   const quiz = useContext(QuizContext);
   return (
-    <div className="grid gap-y-[49px] md:gap-y-[85px]">
+    <div className="grid gap-y-[49px] md:gap-y-[99px]">
       <Header />
-      {!quiz?.finished &&
-        (quiz && quiz.quizTopic ? <QuizComponent /> : <HomeComponent />)}
-      {quiz?.finished && <ScoreComponent />}
+      <main className="">
+        {!quiz?.finished &&
+          (quiz && quiz.quizTopic ? <QuizComponent /> : <HomeComponent />)}
+        {quiz?.finished && <ScoreComponent />}
+      </main>
     </div>
   );
 }

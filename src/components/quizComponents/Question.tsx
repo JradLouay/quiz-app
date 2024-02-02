@@ -1,7 +1,7 @@
-import Quiz from "../Layout";
+import { quizQuestion } from "../../hooks/useFetch";
 
 type QuestionProps = {
-  question: Quiz;
+  question: quizQuestion;
   totalQuestions: number;
   questionNumber: number;
 };
